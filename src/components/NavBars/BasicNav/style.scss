@@ -1,0 +1,29 @@
+.basic-nav {
+  position: absolute;
+  width: 100%;
+
+  h1, h2, h3, p, a, ul {
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff;
+  }
+
+  .basic-nav-list {
+    list-style: none;
+    text-align: center;
+
+    .nav__item {
+      display: inline-block;
+      padding-right: 60px;
+      position: relative;
+      top: -100px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

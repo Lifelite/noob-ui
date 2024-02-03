@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {handleStaggerTo} from "../FancyNav/animations.js";
 import PropTypes from "prop-types";
-import "../../../pages/Personal/Personal.scss";
+import "./style.scss";
 
 export function BasicNav(props) {
     const {
@@ -15,8 +15,8 @@ export function BasicNav(props) {
 
     return (
         <>
-            <nav className="personal-nav">
-                <ul className="personal-nav-list">
+            <nav className="basic-nav">
+                <ul className="basic-nav-list">
                     {
                         navItems.map((item, index) => (
                             <li key={index} id={`nav-link-${index}`} className="nav__item">
