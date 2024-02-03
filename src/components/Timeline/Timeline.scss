@@ -1,0 +1,36 @@
+.timeline--wrapper {
+  width: calc(100% - 24px);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.timeline {
+  width: 60%;
+  max-width: 70vw;
+  padding: 10vw 0 10vh 0;
+  position: relative;
+  /* box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2); */
+  margin: auto;
+}
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(33% + 6px);
+  bottom: 0;
+  width: 0;
+  border: 2px solid;
+}
+.timeline:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media only screen and (max-width: 900px) {
+  .timeline--wrapper {
+    padding-left: 16px;
+  }
+  /* For mobile phones: */
+  .timeline:before {
+    left: calc(1% + 2px);
+  }
+}

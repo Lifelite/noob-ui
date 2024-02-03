@@ -1,0 +1,260 @@
+//* {
+//  margin: 0;
+//  padding: 0;
+//}
+//body {
+//  background: rgb(123, 158, 158);
+//}
+
+
+.honeycomb-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: sans-serif;
+  list-style-type: none;
+  padding-right: 3vh;
+  padding-top: 3vh;
+}
+
+.honeycomb-item {
+  position: relative;
+  visibility: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  transition: all 0.3s ease;
+  will-change: transform;
+  -webkit-transition: all 0.8s ease;
+}
+
+.honeycomb-item::after {
+  content: '';
+  display: block;
+  padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
+
+}
+
+.honeycomb-item-in {
+  position: absolute;
+  width: 96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin: 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  backface-visibility: hidden;
+
+
+  * {
+    position: absolute;
+    outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+    background-color: black;
+  }
+}
+
+.honeycomb-item-out {
+  position: absolute;
+  width: 96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin: 2%;
+  overflow: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,1,0, 180deg);
+  -ms-transform: rotate3d(0,1,0, 180deg);
+  transform:  rotate3d(0,1,0, 180deg) skewY(30deg);
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  backface-visibility: hidden;
+
+  * {
+    position: absolute;
+    outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  }
+}
+
+.honeycomb-item-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #313131;
+}
+
+
+/* HoneyComb Content */
+.honeycomb-item-image {
+  left: -100%;
+  right: -100%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  visibility: visible;
+  overflow: hidden;
+  -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  margin: 0 auto;
+}
+
+.honeycomb-item h1, .honeycomb-item p {
+  width: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  font-weight: bolder;
+  opacity: 1;
+  background: linear-gradient(to top right, black, #110111, black);
+}
+
+.honeycomb-item-title {
+  color: #ffaf1b;
+  text-transform: full-width;
+  text-align: center;
+
+  bottom: 45%;
+}
+
+.honeycomb-item h1:before, .honeycomb-item h1:after {
+  display: inline-block;
+  margin: 0 0.5em;
+  width: 0.25em;
+  height: 0.03em;
+  background: #ffffff;
+  vertical-align: middle;
+  transition: all 0.3s;
+  text-align: center;
+
+}
+
+.honeycomb-item-subtitle {
+  top: 50%;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: large
+}
+
+.honeycomb-item-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.honeycomb-item-image:before, .honeycomb-item-image:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  opacity: 0;
+  transition: opacity 0s;
+}
+
+.honeycomb-item-image:before {
+  background: rgba(255, 255, 255, 0.3)
+}
+
+
+/*** HOVER EFFECT  **********************************************************************/
+
+.honeycomb-item:hover {
+  visibility: visible;
+  opacity: 1;
+
+  .honeycomb-item-in {
+    transform: rotate3d(0, 1, 0, -180deg) skewY(30deg);
+  }
+
+  .honeycomb-item-out {
+    transform: rotate3d(0,0,1, -60deg) skewY(30deg);
+
+  }
+
+  .honeycomb-item-link h1, h1,
+  .honeycomb-item-link p, p {
+    transition: 0.8s;
+    transition-delay: 0.4s;
+    background-size: cover;
+  }
+
+}
+
+
+  /* Sizing and Indention */
+  @media (min-width: 1201px) { /* <- 5-4  HoneyCombs per row */
+    .honeycomb-grid {
+      padding-bottom: 4.4%;
+      font-size: calc(75% - 2px);
+    }
+    .honeycomb-item {
+      width: 20%; /* = 100 / 5 */
+
+    }
+    .honeycomb-item:nth-child(9n+6) { /* first HoneyComb of even rows */
+      margin-left: 10%; /* = width of .honeycomb-item / 2  to indent even rows */
+    }
+  }
+
+  @media (max-width: 1200px) and (min-width: 901px) { /* <- 4-3  HoneyCombs per row */
+    .honeycomb-grid {
+      padding-bottom: 5.5%;
+      font-size: calc(80% - 2px);
+    }
+    .honeycomb-item {
+      width: 25%; /* = 100 / 4 */
+    }
+    .honeycomb-item:nth-child(7n+5) { /* first HoneyCombs of even rows */
+      margin-left: 12.5%; /* = width of .HoneyCombs-item / 2  to indent even rows */
+    }
+  }
+
+  @media (max-width: 900px) and (min-width: 601px) { /* <- 3-2  HoneyCombs per row */
+    .honeycomb-grid {
+      padding-bottom: 7.4%;
+      font-size: calc(80% - 2px);
+    }
+    .honeycomb-item {
+      width: 33.333%; /* = 100 / 3 */
+    }
+    .honeycomb-item:nth-child(5n+4) { /* first HoneyCombs of even rows */
+      margin-left: 16.666%; /* = width of .honeycomb-item / 2  to indent even rows */
+    }
+  }
+
+  @media (max-width: 600px) { /* <- 2-1  HoneyCombs per row */
+    .honeycomb-grid {
+      padding-bottom: 11.2%;
+      font-size: calc(80% - 2px);
+    }
+    .honeycomb-item {
+      width: 50%; /* = 100 / 3 */
+    }
+    .honeycomb-item:nth-child(3n+3) { /* first HoneyComb of even rows */
+      margin-left: 25%; /* = width of .honeycomb-item / 2  to indent even rows */
+    }
+  }
+
+
