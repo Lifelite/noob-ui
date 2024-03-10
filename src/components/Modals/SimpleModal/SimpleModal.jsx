@@ -12,6 +12,7 @@ export function SimpleModal(props) {
         isOpen,
         onClose,
         moreText,
+        buttonText,
     } = props;
 
     useEffect(() => {
@@ -25,7 +26,6 @@ export function SimpleModal(props) {
 
 
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
-
 
 
     const handleCopy = () => {
@@ -43,12 +43,14 @@ export function SimpleModal(props) {
                 <h2 className="heading-secondary">{title}</h2>
                 <h3 className="heading-tertiary">{subtitle}</h3>
                 <p className="simple-modal__text">
-                    {text} <br />
+                    {text} <br/>
                     {moreText}
                 </p>
                 {children}
-                <button type="button" onClick={handleCloseModal} className="simple-modal__button">Close</button>
-                <button type="button" onClick={handleCopy} className="simple-modal__button">Copy</button>
+                <div className="simple-modal__button-group">
+                    <button type="button" onClick={handleCloseModal} className="simple-modal__button">Close</button>
+                    <button type="button" onClick={handleCopy} className="simple-modal__button">{buttonText}</button>
+                </div>
             </div>
         </div>
     )
@@ -70,4 +72,5 @@ SimpleModal.propTypes = {
     onClick: PropTypes.func,
     isOpen: PropTypes.bool,
     onClose: PropTypes.func,
+    buttonText: PropTypes.string,
 }
