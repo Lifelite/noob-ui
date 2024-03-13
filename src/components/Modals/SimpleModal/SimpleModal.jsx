@@ -13,6 +13,7 @@ export function SimpleModal(props) {
         onClose,
         moreText,
         buttonText,
+        onButtonClick,
     } = props;
 
     useEffect(() => {
@@ -27,10 +28,10 @@ export function SimpleModal(props) {
 
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
 
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(text + `\n` + moreText)
-    }
+    //
+    // const handleCopy = () => {
+    //     navigator.clipboard.writeText(text + `\n` + moreText)
+    // }
     if (!isModalOpen) {
         return null;
     }
@@ -49,7 +50,7 @@ export function SimpleModal(props) {
                 {children}
                 <div className="simple-modal__button-group">
                     <button type="button" onClick={handleCloseModal} className="simple-modal__button">Close</button>
-                    <button type="button" onClick={handleCopy} className="simple-modal__button">{buttonText}</button>
+                    <button type="button" onClick={onButtonClick} className="simple-modal__button">{buttonText}</button>
                 </div>
             </div>
         </div>
@@ -59,6 +60,7 @@ export function SimpleModal(props) {
 SimpleModal.defaultProps = {
     id: "popup-modal",
     hidden: true,
+    buttonText: "Copy",
 }
 
 SimpleModal.propTypes = {
@@ -73,4 +75,5 @@ SimpleModal.propTypes = {
     isOpen: PropTypes.bool,
     onClose: PropTypes.func,
     buttonText: PropTypes.string,
+    onButtonClick: PropTypes.func,
 }
