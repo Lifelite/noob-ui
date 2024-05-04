@@ -57,17 +57,11 @@ export function SimpleModal(props) {
     )
 }
 
-SimpleModal.defaultProps = {
-    id: "popup-modal",
-    hidden: true,
-    buttonText: "Copy",
-}
-
 SimpleModal.propTypes = {
     id: PropTypes.string,
     children: PropTypes.node,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
+    title: PropTypes.string || PropTypes.node,
+    subtitle: PropTypes.string || PropTypes.node,
     text: PropTypes.string,
     moreText: PropTypes.string,
     hidden: PropTypes.bool,
