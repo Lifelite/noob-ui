@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import "./style.scss"
 import {useEffect, useState} from "react";
 
@@ -57,17 +57,17 @@ export function SimpleModal(props) {
     )
 }
 
-SimpleModal.propTypes = {
-    id: PropTypes.string,
-    children: PropTypes.node,
-    title: PropTypes.string || PropTypes.node,
-    subtitle: PropTypes.string || PropTypes.node,
-    text: PropTypes.string,
-    moreText: PropTypes.string,
-    hidden: PropTypes.bool,
-    onClick: PropTypes.func,
-    isOpen: PropTypes.bool,
-    onClose: PropTypes.func,
-    buttonText: PropTypes.string,
-    onButtonClick: PropTypes.func,
-}
+//SimpleModal.propTypes = {
+//    id: PropTypes.string,
+//    children: PropTypes.node,
+//    title: PropTypes.string || PropTypes.node,
+//    subtitle: PropTypes.string || PropTypes.node,
+//    text: PropTypes.string,
+//    moreText: PropTypes.string,
+//    hidden: PropTypes.bool,
+//    onClick: PropTypes.func,
+//    isOpen: PropTypes.bool,
+//    onClose: PropTypes.func,
+//    buttonText: PropTypes.string,
+//    onButtonClick: PropTypes.func,
+//}
